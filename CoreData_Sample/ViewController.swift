@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var taskTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

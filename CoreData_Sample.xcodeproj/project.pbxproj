@@ -13,6 +13,8 @@
 		2D685F871EFBBFFA00634A0B /* CoreData_Sample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D685F851EFBBFFA00634A0B /* CoreData_Sample.xcdatamodeld */; };
 		2D685F891EFBBFFA00634A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D685F881EFBBFFA00634A0B /* Assets.xcassets */; };
 		2D685F8C1EFBBFFA00634A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D685F8A1EFBBFFA00634A0B /* LaunchScreen.storyboard */; };
+		2D685F961EFE7AAF00634A0B /* plusButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D685F951EFE7AAF00634A0B /* plusButton.png */; };
+		2D685F981EFE7DE600634A0B /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D685F971EFE7DE600634A0B /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2D685F881EFBBFFA00634A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D685F8B1EFBBFFA00634A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D685F8D1EFBBFFA00634A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D685F951EFE7AAF00634A0B /* plusButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plusButton.png; path = ../plusButton.png; sourceTree = "<group>"; };
+		2D685F971EFE7DE600634A0B /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		2D685F7D1EFBBFFA00634A0B /* CoreData_Sample */ = {
 			isa = PBXGroup;
 			children = (
+				2D685F951EFE7AAF00634A0B /* plusButton.png */,
 				2D685F7E1EFBBFFA00634A0B /* AppDelegate.swift */,
 				2D685F801EFBBFFA00634A0B /* ViewController.swift */,
 				2D685F821EFBBFFA00634A0B /* Main.storyboard */,
@@ -63,6 +68,7 @@
 				2D685F8A1EFBBFFA00634A0B /* LaunchScreen.storyboard */,
 				2D685F8D1EFBBFFA00634A0B /* Info.plist */,
 				2D685F851EFBBFFA00634A0B /* CoreData_Sample.xcdatamodeld */,
+				2D685F971EFE7DE600634A0B /* AddTaskViewController.swift */,
 			);
 			path = CoreData_Sample;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D685F8C1EFBBFFA00634A0B /* LaunchScreen.storyboard in Resources */,
+				2D685F961EFE7AAF00634A0B /* plusButton.png in Resources */,
 				2D685F891EFBBFFA00634A0B /* Assets.xcassets in Resources */,
 				2D685F841EFBBFFA00634A0B /* Main.storyboard in Resources */,
 			);
@@ -141,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D685F811EFBBFFA00634A0B /* ViewController.swift in Sources */,
+				2D685F981EFE7DE600634A0B /* AddTaskViewController.swift in Sources */,
 				2D685F7F1EFBBFFA00634A0B /* AppDelegate.swift in Sources */,
 				2D685F871EFBBFFA00634A0B /* CoreData_Sample.xcdatamodeld in Sources */,
 			);
