@@ -31,13 +31,38 @@ class AddTaskViewController: UIViewController {
         switch sender.selectedSegmentIndex{
         case 0: taskCategory="ToDo"
         case 1: taskCategory="Shopping"
-        case 2: taskCaregory="Assignment"
+        case 2: taskCategory="Assignment"
         default: taskCategory="ToDo"
             
         }
     }
     
     @IBAction func addButton(_ sender: Any) {
+        
+        let taskName=taskTextField.text
+        //textfieldに何も書かれていないとき
+        if taskName=""{
+            //何もせずに前のviewに戻る
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        //context(データベースを扱いときに必要)を定義
+        let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //taskにTask(データベースのエンティティ)型オブジェクトを代入
+        let task=Task(context: context)
+        
+        //Task型データのnameとcategryプロパティに入力、選択したデータを代入
+        task.name=taskName
+        task.category=taskCategory
+        
+        //上を作成した状態でデータベースに保存
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        //画面遷移
+        dismiss(animated: true, completion: nil)
+        
+        
     }
 
     @IBAction func cancelButton(_ sender: Any) {
