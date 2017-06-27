@@ -8,6 +8,7 @@
 
 import UIKit
 
+//データベースにTaskデータを保存する
 class AddTaskViewController: UIViewController {
 
     @IBOutlet weak var taskTextField: UITextField!
@@ -39,9 +40,9 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func addButton(_ sender: Any) {
         
-        let taskName=taskTextField.text
+        var taskName=taskTextField.text
         //textfieldに何も書かれていないとき
-        if taskName=""{
+        if taskName==""{
             //何もせずに前のviewに戻る
             dismiss(animated: true, completion: nil)
             return
