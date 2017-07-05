@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 //CoreDataからデータを持ってきてtableViewに表示させる
@@ -24,10 +25,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view, typically from a nib.
         
         taskTableView.delegate=self
-        taskTableView.datasurce=self
+        taskTableView.dataSource=self
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //CoreDaraからデータをfetch(fetch:持ってくる)
+        getData()
+        //taskTableViewを再読み込み
+        taskTableView.reloadData()
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,19 +56,50 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     //taskToShowにカテゴリー(taskToShowのキーとなっている)ごとのnameが格納される
-    func  tableView(_ tableView:UITabelView,numberOfRowsInSection section: Int)->Int{
+    func  tableView(_ tableView:UITableView,numberOfRowsInSection section: Int)->Int{
         return taskToShow[taskCategories[section]]!.count
     }
     
     func tableView(_ tableView:UITableView,cellForRowAt indexPath:IndexPath)->UITableViewCell{
-        let cell=TableViewCell()
+        let cell=UITableViewCell()
         
         let sectionData=taskToShow[taskCategories[indexPath.section]]
-        let cellData=sectionData?[indexpath.row]
+        let cellData=sectionData?[indexPath.row]
         
-        cell.textlabel="\(cellData)"
+        cell.textlabel?.text="\(cellData)"
         return cell
     }
+    
+    func getData(){
+        //データ保存時と同時にcontextにを定義
+        let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
+            //CoreDataからデータをfetchしてきてtaskに格納
+            let fetchRequest:NSFetchRequest<Task>=Task.fetchRequest()
+            tasks = try context.fetch(fetchRequest)
+            
+            //taskToShow配列をからにする(同じデータを復習表示しないため)
+            for key in taskToShow.keys{
+                taskToShow[key]=[]
+            }
+            //先ほどfetchしデータをtaskToShowに格納
+            for task in tasks{
+                taskToShow[task.category!]?.append(task.name!)
+            }
+        
+        }catch{
+            print("fetching failed.")
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
 }
